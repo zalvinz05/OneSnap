@@ -50,8 +50,9 @@ Install the core Node packages required for the project. Run this in your termin
  ```bash
  npm install react-native-vision-camera react-native-image-picker
  ```
-Since this app relies on capturing images of civic issues, you also need to install the required camera packages:
-
+ ```bash
+ npm install firebase
+ ```
 ### Step 4: Verify Your Device Setup
 Before running the app, ensure your physical Android device is connected and USB debugging is enabled. You can verify your device is recognized by running:
  ```bash
