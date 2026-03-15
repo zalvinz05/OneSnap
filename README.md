@@ -1,60 +1,67 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# OneSnap-Reporting-App
+Designed specifically for Malaysians, this app makes it easy to report civic issues such as potholes, vandalized public facilities, or illegal dumping. Simply snap a photo, provide a brief description, and submit your report directly to the relevant authorities.
 
-# Getting Started
+## Prerequisites
+Before running the project, you need to download and install the following core tools:
+* **Node.js**: LTS version recommended.
+* **Java Development Kit (JDK)**: JDK 17 is recommended for modern React Native projects.
+* **Android Studio**: Even though you are using a physical device, Android Studio is required to install the necessary Android SDK, Android SDK Platform, and Build-Tools.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Environment Variables Setup (Windows)
+To allow your computer to communicate with Android devices and the emulator, you must set up your environment variables:
+1. Open the Windows Windows Search bar and look for **"Edit the system environment variables"**.
+2. Click on **Environment Variables...**
+3. Under **User variables**, click **New...** to create a new `ANDROID_HOME` variable. Set the value to the path of your Android SDK (usually `%LOCALAPPDATA%\Android\Sdk`).
+4. Select the **Path** variable, click **Edit**, and add the following paths:
+   * `%LOCALAPPDATA%\Android\Sdk\platform-tools`
+   * `%LOCALAPPDATA%\Android\Sdk\emulator`
 
-## Step 1: Start the Metro Server
+## How to Run on a Physical Device
+This guide assumes you are testing on an Android device. Instead of using a resource-heavy virtual machine, you can run the app directly on your phone using USB debugging.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### Step 1: Enable USB Debugging
+1. On your phone, go to **Settings** > **About phone**.
+2. Tap on the **Build number** 7 times to unlock Developer Options.
+3. Go back to **Settings**, navigate to **Developer options** (sometimes found under System settings).
+4. Scroll down and turn on **USB debugging**.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### Step 2: Connect Your Phone
+1. Connect your Android phone to your computer via a USB cable.
+2. A prompt should appear on your phone asking to "Allow USB debugging?". Check "Always allow from this computer" and tap **OK**.
 
-```bash
-# using npm
-npm start
+## How to Create a New Project (For Developers)
+If you are setting up this project from scratch or want to create your own React Native app without using a framework like Expo, follow these steps:
 
-# OR using Yarn
-yarn start
-```
+### Step 1: Initialize the Project
+Use the React Native Community CLI to bootstrap a new project. Open your terminal in the directory where you want your project to live and run:
+  ```bash
+  npx @react-native-community/cli init OneSnap --version="0.73"
+  ```
+### Step 2: Navigate to the Project Directory
+Once the initialization process is complete and all template files are generated, move into your new project folder:
+  ```bash
+  cd OneSnapReportingApp
+  ```
+### Step 3: Install Dependencies
+Install the core Node packages required for the project. Run this in your terminal:
+ ```bash
+ npm install
+ ```
+ ```bash
+ npm install react-native-vision-camera react-native-image-picker
+ ```
+Since this app relies on capturing images of civic issues, you also need to install the required camera packages:
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
+### Step 4: Verify Your Device Setup
+Before running the app, ensure your physical Android device is connected and USB debugging is enabled. You can verify your device is recognized by running:
+ ```bash
+ adb devices
+ ```
+###Step 5: Run the App
+To start the Metro Bundler and build the app on your connected device or emulator simultaneously, run this single command:
+ ```bash
+npx react-native run-android
+ ```
 ## Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:
