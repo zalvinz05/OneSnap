@@ -4,7 +4,6 @@ import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDOCMUKV4rfSVLGSiC3YZbwxVG4_At9Q70",
     authDomain: "onesnap-03142026.firebaseapp.com",
     projectId: "onesnap-03142026",
     storageBucket: "onesnap-03142026.firebasestorage.app",
